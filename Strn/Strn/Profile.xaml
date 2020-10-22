@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Strn.Profile">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="ProfilePageBg.png" Aspect="Fill" 
+                   VerticalOptions="StartAndExpand" HeightRequest="300"/>
+            <StackLayout Orientation="Horizontal" Margin="15,40,15,0" Spacing="20" VerticalOptions="Start">
+                <ImageButton Source="back.png" VerticalOptions="Center" HorizontalOptions="Start" Clicked="ImageButton_Clicked"/>
+                <Label Text="Account" TextColor="White" FontSize="20" FontFamily="{StaticResource BoldFont}"/>
+                <ImageButton Source="edit.png" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <StackLayout Margin="0,90" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="ProfilePicture.png" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Ulelu Israel" FontFamily="{StaticResource BoldFont}" TextColor="White" FontSize="20" HorizontalOptions="Center"/>
+            </StackLayout>
+            <Frame Grid.Row="1" HasShadow="True" Margin="30,-70,30,0" BackgroundColor="White" HeightRequest="90"
+                   VerticalOptions="StartAndExpand" CornerRadius="7" Padding="0">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="1">
+                        <Label Text="234" FontFamily="{StaticResource BoldFont}" TextColor="Black" FontSize="22" HorizontalOptions="Center"/>
+                        <Label Text="Followers" TextColor="Black" FontSize="12" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" HorizontalOptions="CenterAndExpand" Spacing="1">
+                        <Label Text="567" TextColor="Black" FontSize="22" FontFamily="{StaticResource BoldFont}" HorizontalOptions="Center"/>
+                        <Label Text="Following" TextColor="Black" FontSize="12" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" HorizontalOptions="CenterAndExpand" Spacing="1">
+                        <Label Text="24" TextColor="Black" FontFamily="{StaticResource BoldFont}" FontSize="22" HorizontalOptions="Center"/>
+                        <Label Text="Posts" TextColor="Black" FontFamily="{StaticResource NormalFont}" FontSize="12" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <ListView Grid.Row="2" x:Name="DetailsList" ItemsSource="{Binding Details}" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand"
+                      SeparatorVisibility="None" HasUnevenRows="True" Margin="0,15">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="False">
+                                <Grid HeightRequest="50" HorizontalOptions="StartAndExpand" VerticalOptions="Start" ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Picture}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                           Margin="10,0"/>
+                                    <StackLayout Grid.Column="1" Spacing="1" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding Heading}" FontFamily="{StaticResource NormalFont}" TextColor="LightGray" FontSize="14" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Body}" FontFamily="{StaticResource NormalFont}" TextColor="Black" FontSize="18" HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

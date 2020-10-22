@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Strn"
+             mc:Ignorable="d"
+             x:Class="Strn.MainPage"
+             BackgroundImageSource="LoginPageBg.png">
+
+    <StackLayout>
+        <Image Source="Logo.png" WidthRequest="130" HorizontalOptions="Center" Margin="0,80,0,0"/>
+        <local:CustomEntry Placeholder="Email"
+               PlaceholderColor="LightGray"
+               Margin="30,50,30,0"
+                           BorderWidth="2"
+                           BorderRadius="3"
+                           BorderColor="White"
+                           FontFamily="{StaticResource NormalFont}"/>
+        <local:CustomEntry Placeholder="Password"
+               PlaceholderColor="LightGray"
+               Margin="30,30,30,0"
+               IsPassword="True"
+                           BorderWidth="2"
+                           BorderRadius="3"
+                           BorderColor="White"
+                           FontFamily="{StaticResource NormalFont}"/>
+        <Button Text="Log in"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="1"
+                FontSize="18"
+                HeightRequest="40"
+                Margin="30,50,30,0"
+                Clicked="LoginClicked"
+                FontFamily="{StaticResource BoldFont}"/>
+        <StackLayout Orientation="Horizontal" Margin="30,5,30,0">
+            <Label Text="Forgot Password"
+                   TextColor="White"
+                   FontSize="16"
+                   HorizontalOptions="StartAndExpand"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="Sign up"
+                   TextColor="White"
+                   FontSize="16"
+                   HorizontalOptions="EndAndExpand"
+                   FontFamily="{StaticResource BoldFont}"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
